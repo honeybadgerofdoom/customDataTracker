@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<div class="col-md-8">
+		{% set theNames = allNames(current_user) %}
+		{% set dailyData = getDailyData(current_user) %}
+
+		{% set days_list = [] %}
+
+		{% set lmh1_list = [] %}
+		{% set lmh2_list = [] %}
+		{% set lmh3_list = [] %}
+		{% set lmh4_list = [] %}
+		{% set lmh5_list = [] %}
+
+		{% set abogg1_list = [] %}
+		{% set abogg2_list = [] %}
+		{% set abogg3_list = [] %}
+		{% set abogg4_list = [] %}
+		{% set abogg5_list = [] %}
+
+		{% set yn1_list = [] %}
+		{% set yn2_list = [] %}
+		{% set yn3_list = [] %}
+		{% set yn4_list = [] %}
+		{% set yn5_list = [] %}
+		{% set yn6_list = [] %}
+		{% set yn7_list = [] %}
+
+		{% set num1_list = [] %}
+		{% set num2_list = [] %}
+		{% set num3_list = [] %}
+		{% set num4_list = [] %}
+		{% set num5_list = [] %}
+		{% set num6_list = [] %}
+		{% set num7_list = [] %}
+
+		{% for data in dailyData.items %}
+
+			{% set days_list2 = days_list.append(data.date_recorded.strftime('%m/%d/%Y')) %}
+
+			{% set lmh1_list2 = lmh1_list.append(data.lmh1) %}
+			{% set lmh2_list2 = lmh2_list.append(data.lmh2) %}
+			{% set lmh3_list2 = lmh3_list.append(data.lmh3) %}
+			{% set lmh4_list2 = lmh4_list.append(data.lmh4) %}
+			{% set lmh5_list2 = lmh5_list.append(data.lmh5) %}
+
+			{% set abogg1_list2 = abogg1_list.append(data.abogg1) %}
+			{% set abogg2_list2 = abogg2_list.append(data.abogg2) %}
+			{% set abogg3_list2 = abogg3_list.append(data.abogg3) %}
+			{% set abogg4_list2 = abogg4_list.append(data.abogg4) %}
+			{% set abogg5_list2 = abogg5_list.append(data.abogg5) %}
+
+			{% set yn1_list2 = yn1_list.append(data.yn1) %}
+			{% set yn2_list2 = yn2_list.append(data.yn2) %}
+			{% set yn3_list2 = yn3_list.append(data.yn3) %}
+			{% set yn4_list2 = yn4_list.append(data.yn4) %}
+			{% set yn5_list2 = yn5_list.append(data.yn5) %}
+			{% set yn6_list2 = yn6_list.append(data.yn6) %}
+			{% set yn7_list2 = yn7_list.append(data.yn7) %}
+
+			{% set num1_list2 = num1_list.append(data.num1) %}
+			{% set num2_list2 = num2_list.append(data.num2) %}
+			{% set num3_list2 = num3_list.append(data.num3) %}
+			{% set num4_list2 = num4_list.append(data.num4) %}
+			{% set num5_list2 = num5_list.append(data.num5) %}
+			{% set num6_list2 = num6_list.append(data.num6) %}
+			{% set num7_list2 = num7_list.append(data.num7) %}
+
+		{% endfor %}
+
+		<h5 class="d-flex justify-content-center text-secondary">{{ theGraph.name }}</h4>
+
+		<script src="{{ url_for('static', filename='Chart.js') }}"></script>
+
+		<canvas id="graph" width="5"></canvas>
+
+		<script>
+
+
+			days = ({{ days_list | safe }});
+			days.reverse();
+
+			names = ({{ theNames | safe }})
+			colorList = ({{ colors | safe }})
+			pointList = ({{ points | safe }})
+
+
+			let yData = []
+
+			if(pointList[0] == 'True') {
+				lmh1 = ({{ lmh1_list | safe }})
+				lmh1.reverse()
+				var item0 = 
+					{
+						label: names[0],
+						data: lmh1,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[0]],
+						borderWidth: 2
+					}
+				yData.push(item0)
+			}
+			if(pointList[1] == 'True') {
+				lmh2 = ({{ lmh2_list | safe }})
+				lmh2.reverse()
+				var item1 = 
+					{
+						label: names[1],
+						data: lmh2,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[1]],
+						borderWidth: 2
+					}
+				yData.push(item1)
+			}
+			if(pointList[2] == 'True') {
+				lmh3 = ({{ lmh3_list | safe }})
+				lmh3.reverse()
+				var item2 = 
+					{
+						label: names[2],
+						data: lmh3,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[2]],
+						borderWidth: 2
+					}
+				yData.push(item1)
+			}
+			if(pointList[3] == 'True') {
+				lmh4 = ({{ lmh4_list | safe }})
+				lmh4.reverse()
+				var item3 = 
+					{
+						label: names[3],
+						data: lmh4,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[3]],
+						borderWidth: 2
+					}
+				yData.push(item3)
+			}
+			if(pointList[4] == 'True') {
+				lmh5 = ({{ lmh5_list | safe }})
+				lmh5.reverse()
+				var item4 = 
+					{
+						label: names[4],
+						data: lmh5,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[4]],
+						borderWidth: 2
+					}
+				yData.push(item4)
+			}
+
+
+			if(pointList[5] == 'True') {
+				abogg1 = ({{ abogg1_list | safe }})
+				abogg1.reverse()
+				var item5 = 
+					{
+						label: names[5],
+						data: abogg1,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[5]],
+						borderWidth: 2
+					}
+				yData.push(item5)
+			}
+			if(pointList[6] == 'True') {
+				abogg2 = ({{ abogg2_list | safe }})
+				abogg2.reverse()
+				var item6 = 
+					{
+						label: names[6],
+						data: abogg2,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[6]],
+						borderWidth: 2
+					}
+				yData.push(item6)
+			}
+			if(pointList[7] == 'True') {
+				abogg3 = ({{ abogg3_list | safe }})
+				abogg3.reverse()
+				var item7 = 
+					{
+						label: names[7],
+						data: abogg3,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[7]],
+						borderWidth: 7
+					}
+				yData.push(item1)
+			}
+			if(pointList[8] == 'True') {
+				abogg4 = ({{ abogg4_list | safe }})
+				abogg4.reverse()
+				var item8 = 
+					{
+						label: names[8],
+						data: abogg4,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[8]],
+						borderWidth: 2
+					}
+				yData.push(item8)
+			}
+			if(pointList[9] == 'True') {
+				abogg5 = ({{ abogg5_list | safe }})
+				abogg5.reverse()
+				var item9 = 
+					{
+						label: names[9],
+						data: abogg5,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[9]],
+						borderWidth: 2
+					}
+				yData.push(item9)
+			}
+
+
+
+			if(pointList[10] == 'True') {
+				yn1 = ({{ yn1_list | safe }})
+				yn1.reverse()
+				var item10 = 
+					{
+						label: names[10],
+						data: yn1,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[10]],
+						borderWidth: 2
+					}
+				yData.push(item10)
+			}
+			if(pointList[11] == 'True') {
+				yn2 = ({{ yn2_list | safe }})
+				yn2.reverse()
+				var item11 = 
+					{
+						label: names[11],
+						data: yn2,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[11]],
+						borderWidth: 2
+					}
+				yData.push(item11)
+			}
+			if(pointList[12] == 'True') {
+				yn3 = ({{ yn3_list | safe }})
+				yn3.reverse()
+				var item12 = 
+					{
+						label: names[12],
+						data: yn3,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[12]],
+						borderWidth: 12
+					}
+				yData.push(item12)
+			}
+			if(pointList[13] == 'True') {
+				yn4 = ({{ yn4_list | safe }})
+				yn4.reverse()
+				var item13 = 
+					{
+						label: names[13],
+						data: yn4,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[13]],
+						borderWidth: 2
+					}
+				yData.push(item13)
+			}
+			if(pointList[14] == 'True') {
+				yn5 = ({{ yn5_list | safe }})
+				yn5.reverse()
+				var item14 = 
+					{
+						label: names[14],
+						data: yn5,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[14]],
+						borderWidth: 2
+					}
+				yData.push(item14)
+			}
+			if(pointList[15] == 'True') {
+				yn6 = ({{ yn6_list | safe }})
+				yn6.reverse()
+				var item15 = 
+					{
+						label: names[15],
+						data: yn6,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[15]],
+						borderWidth: 2
+					}
+				yData.push(item15)
+			}
+			if(pointList[16] == 'True') {
+				yn7 = ({{ yn7_list | safe }})
+				yn7.reverse()
+				var item16 = 
+					{
+						label: names[16],
+						data: yn7,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[16]],
+						borderWidth: 2
+					}
+				yData.push(item16)
+			}
+
+
+
+			if(pointList[17] == 'True') {
+				num1 = ({{ num1_list | safe }})
+				num1.reverse()
+				var item17 = 
+					{
+						label: names[17],
+						data: num1,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[17]],
+						borderWidth: 2
+					}
+				yData.push(item17)
+			}
+			if(pointList[18] == 'True') {
+				num2 = ({{ num2_list | safe }})
+				num2.reverse()
+				var item18 = 
+					{
+						label: names[18],
+						data: num2,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[18]],
+						borderWidth: 2
+					}
+				yData.push(item18)
+			}
+			if(pointList[19] == 'True') {
+				num3 = ({{ num3_list | safe }})
+				num3.reverse()
+				var item19 = 
+					{
+						label: names[19],
+						data: num3,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[19]],
+						borderWidth: 2
+					}
+				yData.push(item19)
+			}
+			if(pointList[20] == 'True') {
+				num4 = ({{ num4_list | safe }})
+				num4.reverse()
+				var item20 = 
+					{
+						label: names[20],
+						data: num4,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[20]],
+						borderWidth: 2
+					}
+				yData.push(item20)
+			}
+			if(pointList[21] == 'True') {
+				num5 = ({{ num5_list | safe }})
+				num5.reverse()
+				var item21 = 
+					{
+						label: names[21],
+						data: num5,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[21]],
+						borderWidth: 2
+					}
+				yData.push(item21)
+			}
+			if(pointList[22] == 'True') {
+				num6 = ({{ num6_list | safe }})
+				num6.reverse()
+				var item22 = 
+					{
+						label: names[22],
+						data: num6,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[22]],
+						borderWidth: 2
+					}
+				yData.push(item22)
+			}
+			if(pointList[23] == 'True') {
+				num7 = ({{ num7_list | safe }})
+				num7.reverse()
+				var item23 = 
+					{
+						label: names[23],
+						data: num7,
+						backgroundColor: ['rgba(225, 225, 225, .2)'],
+						borderColor: [colorList[23]],
+						borderWidth: 2
+					}
+				yData.push(item23)
+			}
+
+
+			let ctxL = document.getElementById("graph").getContext('2d');
+			let myLineChart = new Chart(ctxL, {
+				type: 'line',
+				data: {
+					labels: days,
+					datasets: yData
+				},
+			});
+
+		</script>
+
+
+		{% block content %}{% endblock %}  
+	</div>
+</body>

@@ -1,0 +1,261 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- <div class="col-12"><h2>CreateGraph</h2></div> -->
+ <form method="POST" action="">
+  <div class="content-section" style="overflow-y:auto; max-height:70vh">
+    {{ form.hidden_tag() }} 
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+
+        <div class="form-group">
+          <div class="row">
+            {% if form.name.errors %}
+                <div class="col">Graph Name</div>
+                <div class="col">{{ form.name(class="form-control form-control-sm is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.name.errors %}
+                      <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% else %}
+            <div class="col">Graph Name</div>
+            <div class="col">{{ form.name(class="form-control form-control-sm") }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+
+      {% if vis[0] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[0] }}</div>
+            <div class="col">{{ form.lmh1(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cl1(class="form-control form-control-sm") }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if vis[1] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[1] }}</div>
+            <div class="col">{{ form.lmh2(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cl2(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[2] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[2] }}</div>
+            <div class="col">{{ form.lmh3(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cl3(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[3] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[3] }}</div>
+            <div class="col">{{ form.lmh4(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cl5(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[4] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[4] }}</div>
+            <div class="col">{{ form.lmh5(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cl5(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[5] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[5] }}</div>
+            <div class="col">{{ form.abogg1(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.ca1(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[6] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[6] }}</div>
+            <div class="col">{{ form.abogg2(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.ca2(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[7] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[7] }}</div>
+            <div class="col">{{ form.abogg3(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.ca3(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[8] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[8] }}</div>
+            <div class="col">{{ form.abogg4(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.ca4(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[9] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[9] }}</div>
+            <div class="col">{{ form.abogg5(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.ca5(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[10] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[10] }}</div>
+            <div class="col">{{ form.yn1(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy1(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[11] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[11] }}</div>
+            <div class="col">{{ form.yn2(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy2(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[12] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[12] }}</div>
+            <div class="col">{{ form.yn3(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy3(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+
+      {% if vis[13] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[13] }}</div>
+            <div class="col">{{ form.yn4(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy4(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[14] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[14] }}</div>
+            <div class="col">{{ form.yn5(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy5(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[15] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[15] }}</div>
+            <div class="col">{{ form.yn6(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy6(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[16] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[16] }}</div>
+            <div class="col">{{ form.yn7(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cy7(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[17] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[17] }}</div>
+            <div class="col">{{ form.num1(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn1(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[18] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[18] }}</div>
+            <div class="col">{{ form.num2(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn2(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[19] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[19] }}</div>
+            <div class="col">{{ form.num3(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn3(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[20] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[20] }}</div>
+            <div class="col">{{ form.num4(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn4(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[21] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[21] }}</div>
+            <div class="col">{{ form.num5(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn5(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[22] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[22] }}</div>
+            <div class="col">{{ form.num6(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn6(class="form-control form-control-sm") }}</div>
+        </div><br>
+      {% endif %}
+
+      {% if vis[23] %}
+        <div class="form-group">
+          <div class="row">
+            <div class="col">{{ names[23] }}</div>
+            <div class="col">{{ form.num7(class="form-control form-control-sm") }}</div>
+            <div class="col">{{ form.cn7(class="form-control form-control-sm") }}</div>
+        </div>
+      {% endif %}
+
+    </fieldset>
+
+    <div class="form-group">
+      {{ form.submit(class="btn btn-info ") }}
+    </div>
+
+  </div>
+
+ </form>
+
+{% endblock content %}

@@ -1,0 +1,298 @@
+
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{% set namesList = allNames(current_user) %}
+{% set vis = visIndicators(current_user) %}
+
+{% set days_list = [] %}
+
+
+{% if vis[0] == 1 %}
+	{% set lmh1_list = [] %}
+{% endif %}
+{% if vis[1] == 1 %}
+	{% set lmh2_list = [] %}
+{% endif %}
+{% if vis[2] == 1 %}
+	{% set lmh3_list = [] %}
+{% endif %}
+{% if vis[3] == 1 %}
+	{% set lmh4_list = [] %}
+{% endif %}
+{% if vis[4] == 1 %}
+	{% set lmh5_list = [] %}
+{% endif %}
+
+
+{% if vis[5] == 1 %}
+	{% set abogg1_list = [] %}
+{% endif %}
+{% if vis[6] == 1 %}
+	{% set abogg2_list = [] %}
+{% endif %}
+{% if vis[7] == 1 %}
+	{% set abogg3_list = [] %}
+{% endif %}
+{% if vis[8] == 1 %}
+	{% set abogg4_list = [] %}
+{% endif %}
+{% if vis[9] == 1 %}
+	{% set abogg5_list = [] %}
+{% endif %}
+
+
+{% if vis[10] == 1 %}
+	{% set yn1_list = [] %}
+{% endif %}
+{% if vis[11] == 1 %}
+	{% set yn2_list = [] %}
+{% endif %}
+{% if vis[12] == 1 %}
+	{% set yn3_list = [] %}
+{% endif %}
+{% if vis[13] == 1 %}
+	{% set yn4_list = [] %}
+{% endif %}
+{% if vis[14] == 1 %}
+	{% set yn5_list = [] %}
+{% endif %}
+{% if vis[15] == 1 %}
+	{% set yn6_list = [] %}
+{% endif %}
+{% if vis[16] == 1 %}
+	{% set yn7_list = [] %}
+{% endif %}
+
+
+
+{% if vis[17] == 1 %}
+	{% set num1_list = [] %}
+{% endif %}
+{% if vis[18] == 1 %}
+	{% set num2_list = [] %}
+{% endif %}
+{% if vis[19] == 1 %}
+	{% set num3_list = [] %}
+{% endif %}
+{% if vis[20] == 1 %}
+	{% set num4_list = [] %}
+{% endif %}
+{% if vis[21] == 1 %}
+	{% set num5_list = [] %}
+{% endif %}
+{% if vis[22] == 1 %}
+	{% set num6_list = [] %}
+{% endif %}
+{% if vis[23] == 1 %}
+	{% set num7_list = [] %}
+{% endif %}
+
+
+
+{% for data in dailyData.items %}
+
+	{% set days_list2 = days_list.append(data.date_recorded.strftime('%m/%d/%Y')) %}
+
+	{% if vis[0] == 1 %}
+		{% set lmh1_list2 = lmh1_list.append(data.lmh1) %}
+	{% endif %}
+	{% if vis[1] == 1 %}
+		{% set lmh2_list2 = lmh2_list.append(data.lmh2) %}
+	{% endif %}
+	{% if vis[2] == 1 %}
+		{% set lmh3_list2 = lmh3_list.append(data.lmh3) %}
+	{% endif %}
+	{% if vis[3] == 1 %}
+		{% set lmh4_list2 = lmh4_list.append(data.lmh4) %}
+	{% endif %}
+	{% if vis[4] == 1 %}
+		{% set lmh5_list2 = lmh5_list.append(data.lmh5) %}
+	{% endif %}
+
+
+	{% if vis[5] == 1 %}
+		{% set abogg1_list2 = abogg1_list.append(data.abogg1) %}
+	{% endif %}
+	{% if vis[6] == 1 %}
+		{% set abogg2_list2 = abogg2_list.append(data.abogg2) %}
+	{% endif %}
+	{% if vis[7] == 1 %}
+		{% set abogg3_list2 = abogg3_list.append(data.abogg3) %}
+	{% endif %}
+	{% if vis[8] == 1 %}
+		{% set abogg4_list2 = abogg4_list.append(data.abogg4) %}
+	{% endif %}
+	{% if vis[9] == 1 %}
+		{% set abogg5_list2 = abogg5_list.append(data.abogg5) %}
+	{% endif %}
+
+
+	{% if vis[10] == 1 %}
+		{% set yn1_list2 = yn1_list.append(data.yn1) %}
+	{% endif %}
+	{% if vis[11] == 1 %}
+		{% set yn2_list2 = yn2_list.append(data.yn2) %}
+	{% endif %}
+	{% if vis[12] == 1 %}
+		{% set yn3_list2 = yn3_list.append(data.yn3) %}
+	{% endif %}
+	{% if vis[13] == 1 %}
+		{% set yn4_list2 = yn4_list.append(data.yn4) %}
+	{% endif %}
+	{% if vis[14] == 1 %}
+		{% set yn5_list2 = yn5_list.append(data.yn5) %}
+	{% endif %}
+	{% if vis[15] == 1 %}
+		{% set yn6_list2 = yn6_list.append(data.yn6) %}
+	{% endif %}
+	{% if vis[16] == 1 %}
+		{% set yn7_list2 = yn7_list.append(data.yn7) %}
+	{% endif %}
+
+
+	{% if vis[17] == 1 %}
+		{% set num1_list2 = num1_list.append(data.num1) %}
+	{% endif %}
+	{% if vis[18] == 1 %}
+		{% set num2_list2 = num2_list.append(data.num2) %}
+	{% endif %}
+	{% if vis[19] == 1 %}
+		{% set num3_list2 = num3_list.append(data.num3) %}
+	{% endif %}
+	{% if vis[20] == 1 %}
+		{% set num4_list2 = num4_list.append(data.num4) %}
+	{% endif %}
+	{% if vis[21] == 1 %}
+		{% set num5_list2 = num5_list.append(data.num5) %}
+	{% endif %}
+	{% if vis[22] == 1 %}
+		{% set num6_list2 = num6_list.append(data.num6) %}
+	{% endif %}
+	{% if vis[23] == 1 %}
+		{% set num7_list2 = num7_list.append(data.num7) %}
+	{% endif %}
+
+
+
+{% endfor %}
+
+
+<div class="container">
+	<legend class="border-bottom mb-4">{{ legend }}</legend>
+	<a class="btn btn-secondary mb-2" href="{{ url_for('users.createGraph') }}">Create Graph</a></button><br>
+	{% if dataNum > 29 %}
+		{% for page_num in dailyData.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+			{% if page_num %}
+				{% if dailyData.page == page_num %}
+					<a class="btn btn-secondary mb-2 btn-sm" href="{{ url_for('data.visualize', page=page_num) }}">{{ page_num}}</a>
+				{% else %}
+					<a class="btn btn-outline-secondary mb-2 btn-sm" href="{{ url_for('data.visualize', page=page_num) }}">{{page_num }}</a>
+				{% endif %}
+				{% else %}
+				...
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='Chart.js') }}"></script>
+
+	<h3 class="d-flex justify-content-center text-secondary">Test Graph</h3>
+	<canvas id="chart1" width="5"></canvas><br>
+
+<script>
+
+	days = ({{ days_list | safe }})
+	visL = ({{ vis | safe }})
+	names = ({{ namesList | safe }})
+
+	if(visL[0] == 1) lmh1 = ({{  lmh1_list | safe }});
+	// if(visL[1] == 1) lmh2 = ({{ lmh2_list | safe }});
+	// if(visL[2] == 1) lmh3 = ({{ lmh3_list | safe }});
+	// if(visL[3] == 1) lmh4 = ({{ lmh4_list | safe }});
+	// if(visL[4] == 1) lmh5 = ({{ lmh5_list | safe }});
+
+	if(visL[5] == 1) abogg1 = ({{ abogg1_list | safe }});
+	// if(visL[6] == 1) abogg2 = ({{ abogg2_list | safe }});
+	// if(visL[7] == 1) abogg3 = ({{ abogg3_list | safe }});
+	// if(visL[8] == 1) abogg4 = ({{ abogg4_list | safe }});
+	// if(visL[9] == 1) abogg5 = ({{ abogg5_list | safe }});
+
+	if(visL[10] == 1) yn1 = ({{ yn1_list | safe }});
+	// if(visL[11] == 1) yn2 = ({{ yn2_list | safe }});
+	// if(visL[12] == 1) yn3 = ({{ yn3_list | safe }});
+	// if(visL[13] == 1) yn4 = ({{ yn4_list | safe }});
+	// if(visL[14] == 1) yn5 = ({{ yn5_list | safe }});
+	// if(visL[15] == 1) yn6 = ({{ yn6_list | safe }});
+	// if(visL[16] == 1) yn7 = ({{ yn7_list | safe }});
+
+	if(visL[17] == 1) num1 = ({{ num1_list | safe }});
+	if(visL[18] == 1) num2 = ({{ num2_list | safe }});
+	// if(visL[19] == 1) num3 = ({{ num3_list | safe }});
+	// if(visL[20] == 1) num4 = ({{ num4_list | safe }});
+	// if(visL[21] == 1) num5 = ({{ num5_list | safe }});
+	// if(visL[22] == 1) num6 = ({{ num6_list | safe }});
+	// if(visL[23] == 1) num7 = ({{ num7_list | safe }});
+
+
+	days.reverse();
+
+	if(visL[0] == 1) lmh1.reverse();
+	// if(visL[1] == 1) lmh2.reverse();
+	// if(visL[2] == 1) lmh3.reverse();
+	// if(visL[3] == 1) lmh4.reverse();
+	// if(visL[4] == 1) lmh5.reverse();
+
+	if(visL[5] == 1) abogg1.reverse();
+	// if(visL[6] == 1) abogg2.reverse();
+	// if(visL[7] == 1) abogg3.reverse();
+	// if(visL[8] == 1) abogg4.reverse();
+	// if(visL[9] == 1) abogg5.reverse();
+
+	if(visL[10] == 1) yn1.reverse();
+	// if(visL[11] == 1) yn2.reverse();
+	// if(visL[12] == 1) yn3.reverse();
+	// if(visL[13] == 1) yn4.reverse();
+	// if(visL[14] == 1) yn5.reverse();
+	// if(visL[15] == 1) yn6.reverse();
+	// if(visL[16] == 1) yn7.reverse();
+
+	if(visL[17] == 1) num1.reverse();
+	if(visL[18] == 1) num2.reverse();
+	// if(visL[19] == 1) num3.reverse();
+	// if(visL[20] == 1) num4.reverse();
+	// if(visL[21] == 1) num5.reverse();
+	// if(visL[22] == 1) num6.reverse();
+	// if(visL[23] == 1) num7.reverse();
+
+
+	let ctxL = document.getElementById("chart1").getContext('2d');
+	let myLineChart = new Chart(ctxL, {
+		type: 'line',
+		data: {
+			labels: days,
+			datasets: [
+				{
+					label: names[17],
+					data: num1,
+					backgroundColor: ['rgba(225, 225, 225, .2)',],
+					borderColor: ['#00bfff',],
+					borderWidth: 2
+				},
+				{
+					label: names[18],
+					data: num2,
+					backgroundColor: ['rgba(225, 225, 225, .2)',],
+					borderColor: ['#ff00ff',],
+					borderWidth: 2
+				}
+			]
+		},
+	});
+
+</script>
+
+{% endblock content %}
