@@ -1,0 +1,2 @@
+
+- When inputting data, manually set ALL points not 'visible' to NULL
