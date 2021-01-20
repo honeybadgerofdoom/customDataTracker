@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="container">
+    	<legend class="border-bottom mb-4">{{ legend }}</legend>
+
+    {% if dataNum > 13 %}
+		{% for page_num in dailyData.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+			{% if page_num %}
+				{% if dailyData.page == page_num %}
+					<a class="btn btn-secondary mb-2 btn-sm" href="{{ url_for('data.notes', page=page_num) }}">{{ page_num}}</a>
+				{% else %}
+					<a class="btn btn-outline-secondary mb-2 btn-sm" href="{{ url_for('data.notes', page=page_num) }}">{{page_num }}</a>
+				{% endif %}
+				{% else %}
+				...
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+    	{% for note in dailyData.items %}
+    		<div class="content-section"><p>{{ note.date_recorded.strftime('%m/%d/%Y') }}: {{ note.notes }}</p></div>
+    	{% endfor %}
+
+	</div>
+{% endblock content %}

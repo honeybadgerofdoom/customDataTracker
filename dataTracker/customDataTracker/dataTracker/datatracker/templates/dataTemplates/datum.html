@@ -1,0 +1,141 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="col-12">
+    <div class="content-section">
+      <legend class="border-bottom mb-4 text-secondary">{{ datum.date_recorded.strftime('%m/%d/%Y') }}</legend>
+        <div class="text-secondary">
+          {% if vis[0] %}
+            <p>{{ names[0] }}: {{ datum.lmh1 }}</p>
+          {% endif %}
+
+          {% if vis[1] %}
+            <p>{{ names[1] }}: {{ datum.lmh2 }}</p>
+          {% endif %}
+
+          {% if vis[2] %}
+            <p>{{ names[2] }}: {{ datum.lmh3 }}</p>
+          {% endif %}
+
+          {% if vis[3] %}
+            <p>{{ names[3] }}: {{ datum.lmh4 }}</p>
+          {% endif %}
+
+          {% if vis[4] %}
+            <p>{{ names[4] }}: {{ datum.lmh5 }}</p>
+          {% endif %}
+
+          {% if vis[5] %}
+            <p>{{ names[5] }}: {{ datum.abogg1 }}</p>
+          {% endif %}
+
+          {% if vis[6] %}
+            <p>{{ names[6] }}: {{ datum.abogg2 }}</p>
+          {% endif %}
+
+          {% if vis[7] %}
+            <p>{{ names[7] }}: {{ datum.abogg3 }}</p>
+          {% endif %}
+
+          {% if vis[8] %}
+            <p>{{ names[8] }}: {{ datum.abogg4 }}</p>
+          {% endif %}
+
+          {% if vis[9] %}
+            <p>{{ names[9] }}: {{ datum.abogg5 }}</p>
+          {% endif %}
+
+          {% if vis[10] %}
+            <p>{{ names[10] }}: {{ datum.yn1 }}</p>
+          {% endif %}
+
+          {% if vis[11] %}
+            <p>{{ names[11] }}: {{ datum.yn2 }}</p>
+          {% endif %}
+
+          {% if vis[12] %}
+            <p>{{ names[12] }}: {{ datum.yn3 }}</p>
+          {% endif %}
+
+          {% if vis[13] %}
+            <p>{{ names[13] }}: {{ datum.yn4 }}</p>
+          {% endif %}
+
+          {% if vis[14] %}
+            <p>{{ names[14] }}: {{ datum.yn5 }}</p>
+          {% endif %}
+
+          {% if vis[15] %}
+            <p>{{ names[15] }}: {{ datum.yn6 }}</p>
+          {% endif %}
+
+          {% if vis[16] %}
+            <p>{{ names[16] }}: {{ datum.yn7 }}</p>
+          {% endif %}
+
+          {% if vis[17] %}
+            <p>{{ names[17] }}: {{ datum.num1 }}</p>
+          {% endif %}
+
+          {% if vis[18] %}
+            <p>{{ names[18] }}: {{ datum.num2 }}</p>
+          {% endif %}
+
+          {% if vis[19] %}
+            <p>{{ names[19] }}: {{ datum.num3 }}</p>
+          {% endif %}
+
+          {% if vis[20] %}
+            <p>{{ names[20] }}: {{ datum.num4 }}</p>
+          {% endif %}
+
+          {% if vis[21] %}
+            <p>{{ names[21] }}: {{ datum.num5 }}</p>
+          {% endif %}
+
+          {% if vis[22] %}
+            <p>{{ names[22] }}: {{ datum.num6 }}</p>
+          {% endif %}
+
+          {% if vis[23] %}
+            <p>{{ names[23] }}: {{ datum.num7 }}</p>
+          {% endif %}
+
+          {% if vis[24] %}
+            <p>Notes: {{ datum.notes }}</p>
+          {% endif %}
+
+        </div>
+        {% if datum.backrefDD == current_user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('data.updateData', person_me=datum.backrefDD.username, updateData_id=datum.id) }}">Update</a>
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+          </div>
+        {% endif %}
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">If you delete this data point you will lost all of its data.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form action="{{ url_for('data.delete_data', deleteData_id=datum.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

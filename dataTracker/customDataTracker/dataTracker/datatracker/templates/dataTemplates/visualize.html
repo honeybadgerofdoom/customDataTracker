@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+	<legend class="border-bottom mb-4">{{ legend }}</legend>
+	{% if dataNum > 29 %}
+		{% for page_num in dailyData.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+			{% if page_num %}
+				{% if dailyData.page == page_num %}
+					<a class="btn btn-secondary mb-2 btn-sm" href="{{ url_for('data.visualize', page=page_num) }}">{{ page_num}}</a>
+				{% else %}
+					<a class="btn btn-outline-secondary mb-2 btn-sm" href="{{ url_for('data.visualize', page=page_num) }}">{{page_num }}</a>
+				{% endif %}
+				{% else %}
+				...
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='Chart.js') }}"></script>
+
+	{% if visGraphs[0] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph0') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[1] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph1') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[2] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph2') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[3] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph3') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[4] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph4') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[5] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph5') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[6] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph6') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[7] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph7') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[8] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph8') }}"></iframe>
+		</div>
+	{% endif %}
+
+	{% if visGraphs[9] %}
+		<div class="d-flex justify-content-center">
+			<iframe src="{{ url_for('data.graph9') }}"></iframe>
+		</div>
+	{% endif %}
+
+{% endblock content %}

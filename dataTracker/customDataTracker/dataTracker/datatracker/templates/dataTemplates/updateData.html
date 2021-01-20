@@ -1,0 +1,420 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+  <div class="content-section" style="overflow-y:auto; max-height:70vh">
+    {{ form.hidden_tag() }} 
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">{{ legend }}</legend>
+      <div class="text-muted text-secondary">{{ date }}</div><br>
+
+      {% if vis[0] %}
+        <div class="form-group">
+          <p>{{ names[0] }}</p>
+          {% if form.lmh1.errors %}
+            {{ form.lmh1(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.lmh1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.lmh1(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[1] %}
+        <div class="form-group">
+          <p>{{ names[1] }}</p>
+          {% if form.lmh2.errors %}
+            {{ form.lmh2(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.lmh2.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.lmh2(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[2] %}
+        <div class="form-group">
+          <p>{{ names[2] }}</p>
+          {% if form.lmh3.errors %}
+            {{ form.lmh3(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.lmh3.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.lmh3(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[3] %}
+        <div class="form-group">
+          <p>{{ names[3] }}</p>
+          {% if form.lmh4.errors %}
+            {{ form.lmh4(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.lmh4.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.lmh4(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[4] %}
+        <div class="form-group">
+          <p>{{ names[4] }}</p>
+          {% if form.lmh5.errors %}
+            {{ form.lmh5(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.lmh5.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.lmh5(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[5] %}
+        <div class="form-group">
+          <p>{{ names[5] }}</p>
+          {% if form.abogg1.errors %}
+            {{ form.abogg1(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.abogg1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.abogg1(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[6] %}
+        <div class="form-group">
+          <p>{{ names[6] }}</p>
+          {% if form.abogg2.errors %}
+            {{ form.abogg2(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.abogg2.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.abogg2(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[7] %}
+        <div class="form-group">
+          <p>{{ names[7] }}</p>
+          {% if form.abogg3.errors %}
+            {{ form.abogg3(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.abogg3.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.abogg3(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[8] %}
+        <div class="form-group">
+          <p>{{ names[8] }}</p>
+          {% if form.abogg4.errors %}
+            {{ form.abogg4(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.abogg4.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.abogg4(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[9] %}
+        <div class="form-group">
+          <p>{{ names[9] }}</p>
+          {% if form.abogg5.errors %}
+            {{ form.abogg5(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.abogg5.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.abogg5(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[10] %}
+        <div class="form-group">
+          <p>{{ names[10] }}</p>
+          {% if form.yn1.errors %}
+            {{ form.yn1(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn1(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[11] %}
+        <div class="form-group">
+          <p>{{ names[11] }}</p>
+          {% if form.yn2.errors %}
+            {{ form.yn2(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn2.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn2(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[12] %}
+        <div class="form-group">
+          <p>{{ names[12] }}</p>
+          {% if form.yn3.errors %}
+            {{ form.yn3(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn3.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn3(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+
+      {% if vis[13] %}
+        <div class="form-group">
+          <p>{{ names[13] }}</p>
+          {% if form.yn4.errors %}
+            {{ form.yn4(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn4.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn4(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[14] %}
+        <div class="form-group">
+          <p>{{ names[14] }}</p>
+          {% if form.yn5.errors %}
+            {{ form.yn5(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn5.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn5(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[15] %}
+        <div class="form-group">
+          <p>{{ names[15] }}</p>
+          {% if form.yn6.errors %}
+            {{ form.yn6(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn6.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn6(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[16] %}
+        <div class="form-group">
+          <p>{{ names[16] }}</p>
+          {% if form.yn7.errors %}
+            {{ form.yn7(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.yn7.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.yn7(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[17] %}
+        <div class="form-group">
+          <p>{{ names[17] }}</p>
+          {% if form.num1.errors %}
+            {{ form.num1(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num1(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[18] %}
+        <div class="form-group">
+          <p>{{ names[18] }}</p>
+          {% if form.num2.errors %}
+            {{ form.num2(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num2.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num2(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[19] %}
+        <div class="form-group">
+          <p>{{ names[19] }}</p>
+          {% if form.num3.errors %}
+            {{ form.num3(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num3.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num3(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[20] %}
+        <div class="form-group">
+          <p>{{ names[20] }}</p>
+          {% if form.num4.errors %}
+            {{ form.num4(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num4.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num4(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[21] %}
+        <div class="form-group">
+          <p>{{ names[21] }}</p>
+          {% if form.num5.errors %}
+            {{ form.num5(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num5.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num5(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[22] %}
+        <div class="form-group">
+          <p>{{ names[22] }}</p>
+          {% if form.num6.errors %}
+            {{ form.num6(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num6.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num6(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[23] %}
+        <div class="form-group">
+          <p>{{ names[23] }}</p>
+          {% if form.num7.errors %}
+            {{ form.num7(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.num7.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.num7(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if vis[24] %}
+        <div class="form-group">
+          <p>Notes</p>
+          {% if form.notes.errors %}
+            {{ form.notes(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.notes.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.notes(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </fieldset>
+  </div>
+  <div class="form-group">
+    {{ form.submit(class="btn btn-info ") }}
+  </div> 
+</form>
+{% endblock content %}
